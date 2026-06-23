@@ -149,7 +149,7 @@
 <a class="text-text-secondary-dark hover:text-primary transition-colors text-label font-label uppercase tracking-widest" href="#science">Science</a>
 <a class="text-text-secondary-dark hover:text-primary transition-colors text-label font-label uppercase tracking-widest" href="#acquire">Acquire</a>
 </div>
-<a class="hidden md:inline-flex bg-primary text-white px-6 py-2 rounded-sm font-label text-label uppercase tracking-widest hover:bg-opacity-90 transition-all border border-transparent hover:border-white/20" href="#contact" onclick="event.preventDefault(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">CONTACT</a>
+<a class="hidden md:inline-flex bg-primary text-white px-6 py-2 rounded-sm font-label text-label uppercase tracking-widest hover:bg-opacity-90 transition-all border border-transparent hover:border-white/20" href="#acquire" onclick="event.preventDefault(); document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">CONTACT</a>
 <button class="md:hidden text-primary"><span class="material-symbols-outlined">menu</span></button>
 </div>
 </nav>
@@ -161,7 +161,7 @@
 <div class="col-span-12 md:col-span-5 flex flex-col justify-center border-l border-divider-light pl-6">
 <p class="font-mono text-label text-text-eyebrow uppercase tracking-widest mb-stack-eyebrow-headline fade-up flex items-center gap-2 visible" style="transition-delay: 100ms;"><span class="inline-block w-2 h-2 bg-primary rounded-full"></span> ISO: 0.33L // VAR: AT</p>
 <h1 class="font-display-hero-mobile md:font-display-hero text-display-hero-mobile md:text-display-hero text-primary uppercase mb-stack-headline-sub fade-up leading-none visible" style="transition-delay: 300ms;">Hydratation<br class="">EngineereD.</h1>
-<p class="font-body-lg text-body-lg text-text-secondary-dark mb-stack-sub-body max-w-md fade-up visible" style="transition-delay: 500ms;">Präzise osmotische Balance für zelluläre Effizienz auf dem Platz. Entwickelt nach sportwissenschaftlichen Parametern.</p>
+<p class="font-body-lg text-body-lg text-text-secondary-dark mb-stack-sub-body max-w-md fade-up visible" style="transition-delay: 500ms;">Präzise osmotische Balance für zelluläre Effizienz auf dem Platz. Entwickelt nach sportwissenschaftlichen Parametern.</p><div class="fade-up visible" style="transition-delay: 600ms;"><button class="text-text-primary-dark h-[56px] px-10 rounded-[14px] font-semibold text-body-md tracking-[-0.01em] transition-all duration-300 ease-out hover:bg-surface-dim hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center border border-transparent w-[240px] bg-white" id="open-price-modal">Preisliste</button></div>
 </div>
 <div class="col-span-12 md:col-span-7 relative h-[60vh] md:h-[80vh] flex items-center justify-center fade-up visible" style="transition-delay: 700ms;">
 <div class="absolute inset-0 border border-divider-light/50 border-dashed rounded-full scale-75 opacity-20 animate-[spin_60s_linear_infinite]"></div>
@@ -183,14 +183,14 @@
 <!-- Item 1 -->
 <div class="col-span-12 md:col-span-6 bg-bg-black p-8 fade-up relative group visible">
 <span class="absolute top-4 right-4 font-mono text-[10px] text-text-secondary-dark">PARAM_01</span>
-<h3 class="font-display-md text-display-md mb-4 uppercase">Osmolarität: Isotonisch</h3>
+<h3 class="font-display-md text-display-md mb-4 uppercase">Isotonisch</h3>
 <p class="font-mono text-sm text-text-secondary-light leading-relaxed">Optimierter osmotischer Druck (270-330 mOsm/kg) für beschleunigte zelluläre Flüssigkeitsaufnahme und sofortige Rehydrierung.</p>
 </div>
 <!-- Item 2 -->
 <div class="col-span-12 md:col-span-6 bg-bg-black p-8 fade-up relative group visible" style="transition-delay: 100ms;">
 <span class="absolute top-4 right-4 font-mono text-[10px] text-text-secondary-dark">PARAM_02</span>
 <h3 class="font-display-md text-display-md mb-4 uppercase">Energiebilanz: 18 kcal</h3>
-<p class="font-mono text-sm text-text-secondary-light leading-relaxed">Reduzierte Brennwertdichte bei maximaler Hydratationseffizienz. Formulierung mit synthetischen Süßungsmitteln zur Vermeidung glykämischer Spitzen.</p>
+<p class="font-mono text-sm text-text-secondary-light leading-relaxed">Reduzierte Brennwertdichte bei maximaler Hydratationseffizienz. Formulierung mit Süßungsmitteln zur Vermeidung glykämischer Spitzen.</p>
 </div>
 <!-- Item 3 -->
 <div class="col-span-12 md:col-span-6 bg-bg-black p-8 fade-up relative group visible" style="transition-delay: 200ms;">
@@ -382,6 +382,83 @@ ZUTATEN_LISTE: Wasser, Fruktosesirup, Säuerungsmittel Citronensäure, Säurereg
     }
   });
 </script>
+<div class="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 backdrop-blur-sm transition-opacity duration-300" id="price-modal">
+<div class="bg-bg-black border border-white/10 rounded-xl p-8 md:p-12 max-w-[480px] w-[calc(100%-2rem)] relative">
+<button class="absolute top-6 right-6 text-text-secondary-dark hover:text-white transition-colors" id="close-price-modal">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div class="mb-8">
+<span class="font-label text-[10px] text-text-eyebrow uppercase tracking-widest block mb-2">DRYON · Fresh Drive</span>
+<h2 class="font-display-md text-display-md text-white uppercase mb-4">Preisliste anfordern.</h2>
+<p class="font-body-md text-text-secondary-light">Geben Sie Ihren Namen und Ihre E-Mail-Adresse ein. Die Preisliste wird sofort heruntergeladen.</p>
+</div>
+<form class="space-y-6" id="price-form">
+<div class="flex flex-col gap-2">
+<input class="bg-transparent border-0 border-b border-white/20 py-3 text-white focus:ring-0 focus:border-white transition-colors placeholder:text-text-secondary-dark" name="name" placeholder="Ihr Name" required="" type="text">
+</div>
+<div class="flex flex-col gap-2">
+<input class="bg-transparent border-0 border-b border-white/20 py-3 text-white focus:ring-0 focus:border-white transition-colors placeholder:text-text-secondary-dark" name="email" placeholder="ihre@adresse.com" required="" type="email">
+</div>
+<div class="pt-4">
+<button class="bg-white text-bg-black font-label uppercase tracking-widest h-[52px] w-full rounded-xl hover:bg-bg-offwhite transition-all duration-300" type="submit">Herunterladen</button>
+<p class="hidden text-error-red text-xs mt-4 font-body-md text-center" id="price-form-error">Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.</p>
+</div>
+</form>
+</div>
+</div><script>
+(function() {
+  const modal = document.getElementById('price-modal');
+  const openBtn = document.getElementById('open-price-modal');
+  const closeBtn = document.getElementById('close-price-modal');
+  const form = document.getElementById('price-form');
+  const errorMsg = document.getElementById('price-form-error');
+
+  const openModal = () => {
+    modal.classList.remove('hidden');
+    setTimeout(() => modal.classList.remove('opacity-0'), 10);
+  };
+
+  const closeModal = () => {
+    modal.classList.add('opacity-0');
+    setTimeout(() => modal.classList.add('hidden'), 300);
+  };
+
+  openBtn?.addEventListener('click', openModal);
+  closeBtn?.addEventListener('click', closeModal);
+  modal?.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+  window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorMsg.classList.add('hidden');
+    
+    const formData = new FormData(form);
+    const payload = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      source: 'Preisliste'
+    };
+
+    try {
+      const response = await fetch('https://formspree.io/f/mgojvdow', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        closeModal();
+        window.location.href = 'https://dryon-one.vercel.app/Preisliste.pdf';
+      } else {
+        errorMsg.classList.remove('hidden');
+      }
+    } catch (err) {
+      errorMsg.classList.remove('hidden');
+    }
+  });
+})();
+</script>
+
 
 
 </body></html>

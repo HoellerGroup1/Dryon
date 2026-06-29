@@ -81,9 +81,15 @@
 }
 </script>
 
-<!-- Fonts -->
+<!-- Fonts (preconnect + nicht render-blockierend) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Roboto+Condensed:wght@400;700&amp;family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+<noscript>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=Roboto+Condensed:wght@400;700&amp;family=Roboto+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet">
+</noscript>
 <!-- Vorkompiliertes Tailwind-CSS (statt CDN-Runtime) für bessere Ladezeit & SEO -->
 <link rel="stylesheet" href="/styles.css">
 <style>
@@ -140,6 +146,7 @@
 </div>
 </nav>
 
+<main>
 <!-- Hero Section -->
 <section class="relative min-h-screen flex items-center pt-hero-padding-top pb-section-padding-desktop overflow-hidden bg-white tech-grid border-b border-divider-light" id="overview">
 <div class="max-w-[1200px] mx-auto px-6 w-full relative z-10">
@@ -180,7 +187,7 @@
 <!-- Produkt 1: ISO Lemon -->
 <div class="grid grid-cols-12 gap-8 items-center mb-24 fade-up" id="iso-lemon">
 <div class="col-span-12 md:col-span-5 h-[340px] flex items-center justify-center">
-<img src="/dryon-iso-lemon.png" alt="DRYON ISO Lemon Dose – isotonisches Zitrone-Grapefruit-Getränk für den Golfplatz, 0,33 L" class="h-full object-contain hover:scale-[1.02] transition-transform duration-300 ease-spring" loading="lazy">
+<img src="/dryon-iso-lemon.webp" width="316" height="800" alt="DRYON ISO Lemon Dose – isotonisches Zitrone-Grapefruit-Getränk für den Golfplatz, 0,33 L" class="h-full object-contain hover:scale-[1.02] transition-transform duration-300 ease-spring" loading="lazy" decoding="async">
 </div>
 <div class="col-span-12 md:col-span-7">
 <span class="font-mono text-[10px] text-dryon-lemon uppercase tracking-widest">PROD_01 // ISOTONISCH</span>
@@ -219,14 +226,14 @@
 </details>
 </div>
 <div class="col-span-12 md:col-span-5 order-1 md:order-2 h-[340px] flex items-center justify-center">
-<img src="/dryon-cola-orange.png" alt="DRYON Cola Orange Dose – koffeinhaltiges Erfrischungsgetränk für den Golfplatz, 0,33 L" class="h-full object-contain hover:scale-[1.02] transition-transform duration-300 ease-spring" loading="lazy">
+<img src="/dryon-cola-orange.webp" width="348" height="800" alt="DRYON Cola Orange Dose – koffeinhaltiges Erfrischungsgetränk für den Golfplatz, 0,33 L" class="h-full object-contain hover:scale-[1.02] transition-transform duration-300 ease-spring" loading="lazy" decoding="async">
 </div>
 </div>
 
 <!-- Produkt 3: Premium Bier -->
 <div class="grid grid-cols-12 gap-8 items-center fade-up" id="premium-bier">
 <div class="col-span-12 md:col-span-5 h-[340px] flex items-center justify-center">
-<img src="/dryon-premium-beer.png" alt="DRYON Premium Bier Dose – Vollbier 5,1 % vol für nach der Golfrunde, 0,33 L" class="h-full object-contain hover:scale-[1.02] transition-transform duration-300 ease-spring" loading="lazy">
+<img src="/dryon-premium-beer.webp" width="347" height="800" alt="DRYON Premium Bier Dose – Vollbier 5,1 % vol für nach der Golfrunde, 0,33 L" class="h-full object-contain hover:scale-[1.02] transition-transform duration-300 ease-spring" loading="lazy" decoding="async">
 </div>
 <div class="col-span-12 md:col-span-7">
 <span class="font-mono text-[10px] text-yellow-600 uppercase tracking-widest">PROD_03 // 19. LOCH</span>
@@ -350,26 +357,26 @@
 </div>
 <form class="max-w-2xl mx-auto space-y-8" id="contact-form" novalidate="">
 <div class="flex flex-col gap-2">
-<label class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">Firmenname / Golfclub</label>
-<input class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="firmenname" type="text">
+<label for="cf-firmenname" class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">Firmenname / Golfclub</label>
+<input id="cf-firmenname" class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="firmenname" type="text">
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 <div class="flex flex-col gap-2">
-<label class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">Vorname</label>
-<input class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="vorname" type="text">
+<label for="cf-vorname" class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">Vorname</label>
+<input id="cf-vorname" class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="vorname" type="text">
 </div>
 <div class="flex flex-col gap-2">
-<label class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">Nachname</label>
-<input class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="nachname" type="text">
+<label for="cf-nachname" class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">Nachname</label>
+<input id="cf-nachname" class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="nachname" type="text">
 </div>
 </div>
 <div class="flex flex-col gap-2">
-<label class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">E-Mail-Adresse</label>
-<input class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="email" type="email">
+<label for="cf-email" class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">E-Mail-Adresse</label>
+<input id="cf-email" class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="email" type="email">
 </div>
 <div class="flex flex-col gap-2">
-<label class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">Telefonnummer (optional)</label>
-<input class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="telefon" type="tel">
+<label for="cf-telefon" class="font-label text-[10px] uppercase tracking-widest text-text-eyebrow">Telefonnummer (optional)</label>
+<input id="cf-telefon" class="bg-transparent border-0 border-b border-white/20 py-2 text-white focus:ring-0 focus:border-white transition-colors" name="telefon" type="tel">
 </div>
 <div class="flex items-start gap-3">
 <input class="mt-1" id="contact-consent" name="consent" type="checkbox">
@@ -392,6 +399,7 @@
 </div>
 </div>
 </section>
+</main>
 
 <!-- Footer -->
 <footer class="bg-primary text-white py-12 border-t border-white/10 relative overflow-hidden">
@@ -418,8 +426,8 @@
 <p class="font-body-md text-text-secondary-light">Geben Sie Ihren Namen und Ihre E-Mail-Adresse ein. Die Preisliste wird sofort heruntergeladen.</p>
 </div>
 <form class="space-y-6" id="price-form">
-<div class="flex flex-col gap-2"><input class="bg-transparent border-0 border-b border-white/20 py-3 text-white focus:ring-0 focus:border-white transition-colors placeholder:text-text-secondary-dark" name="name" placeholder="Ihr Name" required type="text"></div>
-<div class="flex flex-col gap-2"><input class="bg-transparent border-0 border-b border-white/20 py-3 text-white focus:ring-0 focus:border-white transition-colors placeholder:text-text-secondary-dark" name="email" placeholder="ihre@adresse.com" required type="email"></div>
+<div class="flex flex-col gap-2"><input aria-label="Ihr Name" class="bg-transparent border-0 border-b border-white/20 py-3 text-white focus:ring-0 focus:border-white transition-colors placeholder:text-text-secondary-dark" name="name" placeholder="Ihr Name" required type="text"></div>
+<div class="flex flex-col gap-2"><input aria-label="Ihre E-Mail-Adresse" class="bg-transparent border-0 border-b border-white/20 py-3 text-white focus:ring-0 focus:border-white transition-colors placeholder:text-text-secondary-dark" name="email" placeholder="ihre@adresse.com" required type="email"></div>
 <div class="pt-4">
 <button class="bg-white text-bg-black font-label uppercase tracking-widest h-[52px] w-full rounded-xl hover:bg-bg-offwhite transition-all duration-300" type="submit">Herunterladen</button>
 <p class="hidden text-error-red text-xs mt-4 font-body-md text-center" id="price-form-error">Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.</p>
@@ -454,6 +462,7 @@
 <p><strong class="text-primary">2. Verarbeitung beim Besuch der Website</strong><br>Beim Aufruf unserer Website werden durch den Hosting-Provider (Vercel Inc.) automatisch technische Daten verarbeitet (u. a. IP-Adresse, Datum/Uhrzeit, abgerufene Seite, Browsertyp). Rechtsgrundlage ist unser berechtigtes Interesse am sicheren Betrieb der Website (Art. 6 Abs. 1 lit. f DSGVO).</p>
 <p><strong class="text-primary">3. Kontakt- und Anfrageformular</strong><br>Wenn Sie uns über das Formular kontaktieren oder die Preisliste anfordern, verarbeiten wir die angegebenen Daten (Name, Firma, E-Mail, ggf. Telefon) zur Bearbeitung Ihrer Anfrage. Die Übermittlung erfolgt über den Dienstleister Formspree (Formspree, Inc., USA). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b und lit. f DSGVO.</p>
 <p><strong class="text-primary">4. Cookies</strong><br>Wir setzen nur technisch notwendige Cookies sowie – nach Ihrer Einwilligung – optionale Cookies für Statistik/Marketing ein. Ihre Einwilligung können Sie jederzeit über die <button type="button" class="underline" onclick="openCookieSettings()">Cookie-Einstellungen</button> widerrufen. Rechtsgrundlage für optionale Cookies ist Art. 6 Abs. 1 lit. a DSGVO.</p>
+<p><strong class="text-primary">4a. Google Analytics</strong><br>Nach Ihrer Einwilligung („Statistik") nutzen wir Google Analytics 4, einen Dienst der Google Ireland Limited (Gordon House, Barrow Street, Dublin 4, Irland). Google Analytics verwendet Cookies, um die Nutzung der Website auszuwerten. Die IP-Adresse wird anonymisiert (anonymize_ip). Dabei kann es zu einer Übermittlung von Daten an Server von Google LLC in den USA kommen. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO), die Sie jederzeit über die <button type="button" class="underline" onclick="openCookieSettings()">Cookie-Einstellungen</button> widerrufen können. Mehr Informationen: <a class="underline" href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
 <p><strong class="text-primary">5. Ihre Rechte</strong><br>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch sowie das Recht auf Beschwerde bei der österreichischen Datenschutzbehörde (dsb.gv.at).</p>
 <p><strong class="text-primary">6. Speicherdauer</strong><br>Wir speichern personenbezogene Daten nur so lange, wie es für die genannten Zwecke oder gesetzliche Aufbewahrungspflichten erforderlich ist.</p>
 <p class="text-[11px] text-text-secondary-light pt-2 border-t border-divider-light">Diese Datenschutzerklärung dient als Grundlage und ersetzt keine Rechtsberatung. Bitte vor dem Livegang durch eine fachkundige Stelle prüfen lassen, insbesondere falls weitere Dienste (z. B. Analytics, Newsletter) eingebunden werden.</p>
@@ -487,15 +496,15 @@
 <div class="space-y-5 mb-8">
 <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
 <div><h3 class="font-label uppercase tracking-widest text-xs mb-1">Notwendig</h3><p class="font-body-md text-xs text-text-secondary-light">Für den Grundbetrieb der Website erforderlich. Immer aktiv.</p></div>
-<input type="checkbox" checked disabled class="mt-1">
+<input type="checkbox" checked disabled aria-label="Notwendige Cookies (immer aktiv)" class="mt-1">
 </div>
 <div class="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
 <div><h3 class="font-label uppercase tracking-widest text-xs mb-1">Statistik</h3><p class="font-body-md text-xs text-text-secondary-light">Hilft uns zu verstehen, wie die Seite genutzt wird (anonymisiert).</p></div>
-<input type="checkbox" id="cookie-statistik" class="mt-1">
+<input type="checkbox" id="cookie-statistik" aria-label="Statistik-Cookies erlauben" class="mt-1">
 </div>
 <div class="flex items-start justify-between gap-4">
 <div><h3 class="font-label uppercase tracking-widest text-xs mb-1">Marketing</h3><p class="font-body-md text-xs text-text-secondary-light">Für personalisierte Inhalte und Anzeigen.</p></div>
-<input type="checkbox" id="cookie-marketing" class="mt-1">
+<input type="checkbox" id="cookie-marketing" aria-label="Marketing-Cookies erlauben" class="mt-1">
 </div>
 </div>
 <div class="flex flex-col sm:flex-row gap-3">
@@ -629,12 +638,29 @@
   function closeCookieSettings() { cookieModal.classList.add('opacity-0'); setTimeout(() => cookieModal.classList.add('hidden'), 300); }
   cookieModal?.addEventListener('click', (e) => { if (e.target.id === 'cookie-modal') closeCookieSettings(); });
 
+  // ====== Google Analytics 4 (lädt nur nach Einwilligung "Statistik") ======
+  const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"; // TODO: echte GA4 Measurement-ID eintragen
+  let gaLoaded = false;
+  function loadGoogleAnalytics() {
+    if (gaLoaded) return;
+    if (!GA_MEASUREMENT_ID || GA_MEASUREMENT_ID.indexOf('XXXX') !== -1) return; // Platzhalter -> nicht laden
+    gaLoaded = true;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+  }
+
   function applyConsent() {
     const c = getConsent();
     if (!c) return;
-    // Hier später Statistik-/Marketing-Skripte laden, z. B.:
-    // if (c.statistik) { /* Analytics laden */ }
-    // if (c.marketing) { /* Marketing-Pixel laden */ }
+    if (c.statistik) { loadGoogleAnalytics(); }
+    // if (c.marketing) { /* Marketing-Pixel hier laden */ }
   }
 
   // Init
